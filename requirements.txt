@@ -1,0 +1,18 @@
+# Core - Ultralytics YOLO
+ultralytics>=8.0.0
+
+# Web Framework
+Flask>=2.0.0
+
+# Image Processing (Flask 处理上传图片时需要)
+Pillow>=9.0.0
+
+# Optional but recommended - for better performance
+# 注意：PyTorch 建议单独安装，因为 CUDA 版本因环境而异
+# 如果使用 CPU 或已有 PyTorch 环境，可注释掉下面这行
+torch>=1.8.0
+torchvision>=0.9.0
+
+# Utilities
+numpy>=1.21.0
+opencv-python>=4.5.0

@@ -1,0 +1,23 @@
+.build/
+.buildlog/
+.history
+.svn
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+.vscode/
+**/doc/
+build/
+/coverage/
+
+*.lock
+**/*.bak
+.venv
+yolo11n_saved_model/*
+*.npy
+*.onnx
+
+1.2.0

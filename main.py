@@ -7,6 +7,7 @@ from PIL import Image
 app = Flask(__name__)
 model = YOLO("yolo11n.pt")
 
+
 def predict_image(img):
     results = model(img)
     detections = []
@@ -24,6 +25,7 @@ def predict_image(img):
                 'bbox': [float(x) for x in bbox]
             })
     return detections
+
 
 HTML_PAGE = """
 <!DOCTYPE html>
@@ -312,9 +314,11 @@ HTML_PAGE = """
 </html>
 """
 
+
 @app.route('/')
 def index():
     return render_template_string(HTML_PAGE)
+
 
 @app.route('/detect', methods=['POST'])
 def detect_file():
@@ -327,6 +331,7 @@ def detect_file():
         return jsonify({'error': 'Invalid image file'}), 400
     detections = predict_image(img)
     return jsonify({'detections': detections})
+
 
 @app.route('/detect_url', methods=['POST'])
 def detect_url():
@@ -346,6 +351,7 @@ def detect_url():
         return jsonify({'error': f'Failed to load image: {str(e)}'}), 400
     detections = predict_image(img)
     return jsonify({'detections': detections})
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
